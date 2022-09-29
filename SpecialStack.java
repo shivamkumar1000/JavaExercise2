@@ -5,28 +5,32 @@ public class SpecialStack{
     static Stack<Integer> st = new Stack<Integer>();
     static Integer minEle = Integer.MAX_VALUE;
     public static void pushEle(int num){
-        if(num<minEle) {
+        if(st.empty()){
             minEle = num;
-//            st1.push(minEle);
+            st.push(num);
+            return;
         }
-        st.push(num);
+        if(num<minEle) {
+            st.push(2*num - minEle);
+            minEle = num;
+        }
+        else
+            st.push(num);
 
     }
     public static void popEle(){
-        if(st.empty())
+        if(st.empty()) {
             System.out.println("Can't pop the element");
-        else {
-            int top = st.peek();
-            if(top==minEle)
-
-            st.pop();
+            return;
+        }
+        int top = st.pop();
+        if(top<minEle){
+            minEle = 2*minEle - top;
         }
     }
     public static int getMin(){
-        if(minEle==Integer.MAX_VALUE) {
-            System.out.println("Stack is Empty");
+        if(st.empty())
             return -1;
-        }
         return minEle;
     }
     public static void main(String[] args){
