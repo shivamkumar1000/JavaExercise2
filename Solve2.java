@@ -39,7 +39,8 @@ public class Solve2{
         Collections.sort(al);
         for(Employeee e1 : al){
             System.out.println(e1.first_name+" "+e1.last_name+" "+e1.age+" "+e1.salary);
-        }System.out.println();
+        }
+        System.out.println();
         System.out.println("Sorting by salary:-");
         Collections.sort(al,new sortBysalarycomparator());
         for(Employeee e1 : al){

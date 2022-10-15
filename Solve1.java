@@ -9,8 +9,10 @@ class Solve1{
         }
 
         Float sum= Float.valueOf(0);
-        for(Float i:l){
-            sum+=i;
+        Iterator<Float> it = l.listIterator();
+        while(it .hasNext()){
+            sum+=it.next();
+
         }
         System.out.println(sum);
     }
